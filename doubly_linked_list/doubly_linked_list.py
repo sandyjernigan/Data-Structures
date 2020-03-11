@@ -108,7 +108,6 @@ class DoublyLinkedList:
             next_head.prev = None
             self.head.next = None
             self.length -= 1
-            self.head = next_head.value
             return value
 
     def add_to_tail(self, value):
@@ -151,12 +150,12 @@ class DoublyLinkedList:
             return value
         else:
             # we have more than one element
-            value = self.head.value
+            value = self.tail.value
             prev_tail = self.tail.prev
             prev_tail.next = None
             self.tail.prev = None
-            self.length -= 1
             self.tail = prev_tail
+            self.length -= 1
             return value
 
     """Removes the input node from its current spot in the 
@@ -186,10 +185,13 @@ our_dll.add_to_head(3)
 our_dll.add_to_head(8)
 
 our_dll.add_to_tail(4)
-our_dll.add_to_tail(8)
+our_dll.add_to_tail(9)
 
 print(our_dll)
 
 our_dll.remove_from_head()
 
+print(our_dll)
+
+print("Final: ")
 print(our_dll)
