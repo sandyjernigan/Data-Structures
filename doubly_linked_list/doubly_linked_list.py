@@ -192,6 +192,10 @@ print(our_dll)
 
 removed_val = our_dll.remove_from_head()
 print(removed_val)
+print(our_dll)
+
+removed_val = our_dll.remove_from_tail()
+print(removed_val)
 
 print("Final: ")
 print(our_dll)
