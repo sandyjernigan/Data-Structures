@@ -107,6 +107,7 @@ class DoublyLinkedList:
             next_head = self.head.next
             next_head.prev = None
             self.head.next = None
+            self.head = next_head
             self.length -= 1
             return value
 
@@ -189,9 +190,8 @@ our_dll.add_to_tail(9)
 
 print(our_dll)
 
-our_dll.remove_from_head()
-
-print(our_dll)
+removed_val = our_dll.remove_from_head()
+print(removed_val)
 
 print("Final: ")
 print(our_dll)
