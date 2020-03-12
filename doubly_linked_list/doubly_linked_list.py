@@ -176,8 +176,21 @@ class DoublyLinkedList:
         
     def get_max(self):
         """Returns the highest value currently in the list"""
-        pass
+        curr_node = self.head
+        max_value = self.head.value
 
+        if (self.head == None):
+            return "empty"
+        
+        while curr_node.next is not None:
+            curr_node = curr_node.next
+            
+            if(max_value < curr_node.value):
+                max_value = curr_node.value
+
+        return max_value
+                    
+# Testing Output
 our_dll = DoublyLinkedList()
 print(our_dll)
 
@@ -199,3 +212,10 @@ print(removed_val)
 
 print("Final: ")
 print(our_dll)
+
+max_val = our_dll.get_max()
+print(max_val)
+
+our_dll.add_to_tail(9)
+max_val = our_dll.get_max()
+print(max_val)
