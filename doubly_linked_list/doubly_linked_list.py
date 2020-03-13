@@ -189,19 +189,26 @@ class DoublyLinkedList:
                 max_value = curr_node.value
 
         return max_value
+    
+    def find_middle(self):
+        """Returns the middle value from the list"""
+        h_node = self.head
+        t_node = self.tail
+
+        if (self.head == None):
+            return "empty"
+
+        while h_node != t_node and h_node.next != t_node:
+            h_node = h_node.next
+            t_node = t_node.prev
+        
+        return h_node.value
+
                     
 # Testing Output
-# our_dll = DoublyLinkedList()
-# print(our_dll)
+our_dll = DoublyLinkedList()
 
-# our_dll.add_to_head(5)
-# our_dll.add_to_head(3)
-# our_dll.add_to_head(8)
-
-# our_dll.add_to_tail(4)
-# our_dll.add_to_tail(9)
-
-# print(our_dll)
+[our_dll.add_to_tail(i) for i in [1,2,3,4,5,6,7,8,9]]
 
 # removed_val = our_dll.remove_from_head()
 # print(removed_val)
@@ -210,12 +217,15 @@ class DoublyLinkedList:
 # removed_val = our_dll.remove_from_tail()
 # print(removed_val)
 
-# print("Final: ")
-# print(our_dll)
-
 # max_val = our_dll.get_max()
 # print(max_val)
 
 # our_dll.add_to_tail(9)
 # max_val = our_dll.get_max()
 # print(max_val)
+
+print("DLL: ")
+print(our_dll)
+
+middle_val = our_dll.find_middle()
+print(middle_val)
