@@ -119,7 +119,7 @@ class DoublyLinkedList:
         # if node is already in most recent, just return value
         if node is self.head: return node
 
-        # Remove Node by resetting Connections around Node
+        # Remove Node by resetting connections around Node
         if node.next: node.next.prev = node.prev
         if node.prev: node.prev.next = node.next
 
@@ -139,12 +139,44 @@ class DoublyLinkedList:
     def move_to_end(self, node):
         """Removes the input node from its current spot in the 
         List and inserts it as the new tail node of the List."""
-        pass
+        
+        # if node is already in most recent, just return value
+        if node is self.tail: return node
+
+        # Remove Node by resetting connections around Node
+        if node.next: node.next.prev = node.prev
+        if node.prev: node.prev.next = node.next
+
+        # If Node is the head, set a new head
+        if node is self.head:
+            self.head = self.head.next
+
+        # Update tail node
+        self.tail.next = node
+        node.prev = self.tail
+        node.next = None
+        self.tail = node
+
+        # Return the Node
+        return node
 
     def delete(self, node):
         """Removes a node from the list and handles cases where
         the node was the head or the tail"""
-        pass
+
+        # If Node is the head, set a new head
+        if node is self.head:
+            self.head = self.head.next
+        
+        # If Node is the tail, set a new tail
+        if node is self.tail:
+            self.tail = self.tail.prev
+
+        # Remove Node by resetting connections around Node
+        if node.next: node.next.prev = node.prev
+        if node.prev: node.prev.next = node.next
+
+        # Node is removed once there are no more references to the Node
         
     def get_max(self):
         """Returns the highest value currently in the list"""
