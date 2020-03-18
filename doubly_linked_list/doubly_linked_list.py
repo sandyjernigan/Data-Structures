@@ -224,7 +224,6 @@ class DoublyLinkedList:
 
         # Node is removed once there are no more references to the Node
         
-        
     def get_max(self):
         """Returns the highest value currently in the list"""
         curr_node = self.head
