@@ -116,61 +116,50 @@ class DoublyLinkedList:
         """Removes the input node from its current spot in the 
         List and inserts it as the new head node of the List."""
         
-        # if node is already in most recent, just return value
-        if node is self.head: return node
+        # if node is already in most recent, just return
+        if node is self.head: return
 
-        # Remove Node by resetting connections around Node
-        if node.next: node.next.prev = node.prev
-        if node.prev: node.prev.next = node.next
+        # Get node value
+        node_value = node.value
 
-        # If Node is the tail, set a new tail
-        if node is self.tail:
-            self.tail = self.tail.prev
+        # Delete the node
+        self.delete(node)
 
-        # Update head node
-        self.head.prev = node
-        node.next = self.head
-        node.prev = None
-        self.head = node
-
-        # Return the Node
-        return node
+        # Add node to the head
+        self.add_to_head(node_value)
 
     def move_to_end(self, node):
         """Removes the input node from its current spot in the 
         List and inserts it as the new tail node of the List."""
         
-        # if node is already in most recent, just return value
-        if node is self.tail: return node
+        # if node is already in most recent, just return
+        if node is self.tail: return
 
-        # Remove Node by resetting connections around Node
-        if node.next: node.next.prev = node.prev
-        if node.prev: node.prev.next = node.next
+        # Get node value
+        node_value = node.value
 
-        # If Node is the head, set a new head
-        if node is self.head:
-            self.head = self.head.next
+        # Delete the node
+        self.delete(node)
 
-        # Update tail node
-        self.tail.next = node
-        node.prev = self.tail
-        node.next = None
-        self.tail = node
-
-        # Return the Node
-        return node
+        # Add node to the head
+        self.add_to_tail(node_value)
 
     def delete(self, node):
         """Removes a node from the list and handles cases where
         the node was the head or the tail"""
+        self.length -= 1
+
+        # If only 1 value
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+            return
 
         # If Node is the head, set a new head
-        if node is self.head:
-            self.head = self.head.next
+        if node is self.head: self.head = self.head.next
         
         # If Node is the tail, set a new tail
-        if node is self.tail:
-            self.tail = self.tail.prev
+        if node is self.tail: self.tail = self.tail.prev
 
         # Remove Node by resetting connections around Node
         if node.next: node.next.prev = node.prev
