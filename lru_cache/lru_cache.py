@@ -71,12 +71,3 @@ class LRUCache:
         
         # Get Results and Set to most-recently used entry (head)
         return self.get(key)
-
-
-testCache = LRUCache()
-
-testCache.set('item1', 'a')
-testCache.set('item2', 'b')
-testCache.set('item3', 'c')
-
-print (testCache.get('item1'))

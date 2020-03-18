@@ -184,11 +184,4 @@ class DoublyLinkedList:
 
         return max_value
 
-# Testing Output
-our_dll = DoublyLinkedList()
-
-[our_dll.add_to_tail(i) for i in [1,2,3,4,5,6,7,8,9]]
-
-print("DLL: ")
-print(our_dll)
 
