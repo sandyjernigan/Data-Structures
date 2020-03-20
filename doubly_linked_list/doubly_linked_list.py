@@ -256,9 +256,9 @@ class DoublyLinkedList:
 
 
 # Testing Output
-our_dll = DoublyLinkedList()
+# our_dll = DoublyLinkedList()
 
-[our_dll.add_to_tail(i) for i in [1,2,3,4,5,6,7,8,9]]
+# [our_dll.add_to_tail(i) for i in [1,2,3,4,5,6,7,8,9]]
 
 # removed_val = our_dll.remove_from_head()
 # print(removed_val)
@@ -274,8 +274,8 @@ our_dll = DoublyLinkedList()
 # max_val = our_dll.get_max()
 # print(max_val)
 
-print("DLL: ")
-print(our_dll)
+# print("DLL: ")
+# print(our_dll)
 
-middle_val = our_dll.find_middle()
-print(middle_val)
+# middle_val = our_dll.find_middle()
+# print(middle_val)
